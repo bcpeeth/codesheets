@@ -2891,3 +2891,431 @@ ADVANCED OBJECTS {
         //          energyLevel: 75 }
     }
 }
+
+
+CLASSES {
+    //JavaScript is an object-oriented programming (OOP) language we can use to model real-world items. Classes are a tool that developers use to quickly produce similar objects.
+
+    Example:
+
+    //Take, for example, an object representing a dog named halley. This dog's name (a key) is "Halley" (a value) and has an age (another key) of 3 (another value). We create the halley object.
+
+    let halley = {
+        _name: 'Halley',
+        _behavior: 0,
+      
+        get name() {
+            return this._name;
+        },
+      
+        get behavior() {
+            return this._behavior;
+        },
+      
+        incrementBehavior() {
+            this._behavior++;
+        }
+    }
+
+    //Now, imagine you own a dog daycare and want to create a catalog of all the dogs who belong to the daycare. Instead of using the syntax above for every dog that joins the daycare, we can create a Dog class that serves as a template for creating new Dog objects. For each new dog, you can provide a value for their name:
+
+    class Dog {
+        constructor(name) {
+            this._name = name;
+            this._behavior = 0;
+        }
+      
+        get name() {
+            return this._name;
+        }
+        get behavior() {
+            return this._behavior;
+        }   
+      
+        incrementBehavior() {
+            this._behavior ++;
+        }
+    }
+
+    const halley = new Dog('Halley');
+
+    console.log(halley.name); // Prints: Halley
+    console.log(halley.behavior); // Prints: 0
+
+    halley.incrementBehavior(); // Add one to behavior
+    console.log(halley.name); // Prints: Halley
+    console.log(halley.behavior); // Prints: 1
+
+
+    CONSTRUCTOR {
+        //Although you may see similarities between class and object syntax, there is one important method that sets them apart. It's called the constructor method. JavaScript calls the constructor() method every time it creates a new instance of a class.
+
+        Examples: 
+
+        A   class Dog {
+                constructor(name) {
+                    this.name = name;
+                    this.behavior = 0;
+                }
+            }
+
+            1.  //Dog is the name of our class. By convention, we capitalize and CamelCase class names.
+            2.  //JavaScript will invoke the constructor() method every time we create a new instance of our Dog class.
+            3.  //This constructor() method accepts one argument, name.
+            4.  //Inside of the constructor() method, we use the this keyword. In the context of a class, this refers to an instance of that class. In the Dog class, we use this to set the value of the Dog instance's name property to the name argument.
+            5.  //Under this.name, we create a property called behavior, which will keep track of the number of times a dog misbehaves. The behavior property is always initialized to zero.
+
+
+        B   1.  //Create an empty class named Surgeon.
+
+            class Surgeon {
+
+            }
+
+            2.  //Inside the Surgeon class, create a constructor() method that accepts two parameters: name and department.
+
+            class Surgeon {
+                constructor(name, department) {
+
+                }
+            }
+
+            3.  //Inside the Surgeon constructor(), create name and department properties and set them equal to your input parameters.
+
+            class Surgeon {
+                constructor(name, department) {
+                    this.name = name;
+                    this.department = department;
+                }
+            }
+
+            4.  //Create a new surgeon called Kelly. Kelly is Orthopedic
+
+            class Surgeon {
+                constructor(name, department) {
+                    this.name = name;
+                    this.department = department;
+                }
+            }
+
+            const kelly = new Surgeon('Kelly', 'Orthopedic')
+
+            console.log(kelly); 
+            //Prints: Surgeon { name: 'Kelly', department: 'Orthopedic' }
+    }
+
+
+    INSTANCE  {
+        //An instance is an object that contains the property names and methods of a class, but with unique property values.
+
+        Example:
+
+        class Dog {
+            constructor(name) {
+                this.name = name;
+                this.behavior = 0;
+            } 
+        }
+          
+        const halley = new Dog('Halley'); // Create new Dog instance
+        console.log(halley.name); // Log the name value saved to halley
+        // Output: 'Halley'
+
+        //Below our Dog class, we use the new keyword to create an instance of our Dog class. Let's consider the line of code step-by-step.
+
+        1.  //We create a new variable named halley that will store an instance of our Dog class.
+        2.  //We use the new keyword to generate a new instance of the Dog class. The new keyword calls the constructor(), runs the code inside of it, and then returns the new instance.
+        3.  //We pass the 'Halley' string to the Dog constructor, which sets the name property to 'Halley'.
+        4.  //Finally, we log the value saved to the name key in our halley object, which logs 'Halley' to the console.
+    }
+
+
+    METHODS {
+        //Class method and getter syntax is the same as it is for objects except you can not include commas between methods.
+
+        Example:
+
+        A   class Dog {
+                constructor(name) {
+                    this._name = name;
+                    this._behavior = 0;
+                }
+            
+                get name() {
+                    return this._name;
+                }
+            
+                get behavior() {
+                    return this._behavior;
+                }
+            
+                incrementBehavior() {
+                    this._behavior++;
+                }
+            }
+
+
+        B   class Surgeon {
+                constructor(name, department) {
+                    this.name = name;
+                    this.department = department;
+                }
+            }
+
+            1.  //In the Surgeon constructor, prepend the name and department properties with an underscore (_).
+
+            class Surgeon {
+                constructor(name, department) {
+                    this._name = name;
+                    this._department = department;
+                }
+            }
+
+            2.  //Inside of the constructor(), add a property named _remainingVacationDays and set it equal to 20.
+
+            class Surgeon {
+                constructor(name, department) {
+                    this._name = name;
+                    this._department = department;
+                    this._remainingVacationDays = 20;
+                }
+            }
+
+            3.  //Under the constructor(), create a getter called name that returns the value saved to _name. Then, under the name getter, create a getter called department that returns the value saved to _department. And finally, under the department getter, create a getter called remainingVacationDays that returns the value saved to _remainingVacationDays.
+
+            class Surgeon {
+                constructor(name, department) {
+                    this._name = name;
+                    this._department = department;
+                    this._remainingVacationDays = 20;
+                }
+
+                get name() {
+                    return this._name;
+                }
+
+                get department() {
+                    return this._department;
+                }
+
+                get remainingVacationDays() {
+                    return this._remainingVacationDays;
+                }
+            }
+                
+            4.  //Under the remainingVacationDays getter, create a method called takeVacationDays that accepts one argument named daysOff. Inside of the method, subtract daysOff from the number saved to _remainingVacationDays. Set _remainingVacationDays to the result.
+
+            class Surgeon {
+                constructor(name, department) {
+                    this._name = name;
+                    this._department = department;
+                    this._remainingVacationDays = 20;
+                }
+
+                get name() {
+                    return this._name;
+                }
+
+                get department() {
+                    return this._department;
+                }
+
+                get remainingVacationDays() {
+                    return this._remainingVacationDays;
+                }
+
+                takeVacationDays(daysOff) {
+                    this._remainingVacationDays -= daysOff;
+                }
+            }
+    }
+
+    METHOD CALLS {
+        //Finally, let's use our new methods to access and manipulate data from Dog instances.
+
+        Example:
+
+        A   class Dog {
+                constructor(name) {
+                    this._name = name;
+                    this._behavior = 0;
+                }
+            
+                get name() {
+                    return this._name;
+                }
+            
+                get behavior() {
+                    return this._behavior;
+                }   
+            
+                incrementBehavior() {
+                    this._behavior++;
+                }
+            }
+            
+            const halley = new Dog('Halley');
+
+            //The syntax for calling methods and getters on an instance is the same as calling them on an object — append the instance with a period, then the property or method name. For methods, you must also include opening and closing parentheses.
+
+            //Let's take a moment to create two Dog instances and call our .incrementBehavior() method on one of them.
+
+            let nikko = new Dog('Nikko'); // Create dog named Nikko
+            nikko.incrementBehavior(); // Add 1 to nikko instance's behavior
+            let bradford = new Dog('Bradford'); // Create dog name Bradford
+            console.log(nikko.behavior); // Logs 1 to the console
+            console.log(bradford.behavior); // Logs 0 to the console
+
+
+        B   class Surgeon {
+                constructor(name, department) {
+                    this._name = name;
+                    this._department = department;
+                    this._remainingVacationDays = 20;
+                }
+                
+                get name() {
+                    return this._name;
+                }
+                
+                get department() {
+                    return this._department;
+                }
+                
+                get remainingVacationDays() {
+                    return this._remainingVacationDays;
+                }
+                
+                takeVacationDays(daysOff) {
+                    this._remainingVacationDays -= daysOff;
+                }
+            }
+            
+            const surgeonCurry = new Surgeon('Curry', 'Cardiovascular');
+            const surgeonDurant = new Surgeon('Durant', 'Orthopedics');
+            
+            console.log(surgeonCurry.name);  //Prints: Curry
+            
+            surgeonCurry.takeVacationDays(3);  //Takes 3 days of vacation from Curry remaining vacation days.
+            
+            console.log(surgeonCurry.remainingVacationDays)  //Prints: 17;
+    }
+
+
+    INHERITANCE {
+        //Imagine our doggy daycare is so successful that we decide to expand the business and open a kitty daycare. Before the daycare opens, we need to create a Cat class so we can quickly generate Cat instances. We know that the properties in our Cat class (name, behavior) are similar to the properties in our Dog class, though, there will be some differences, because of course, cats are not dogs.
+
+        Example:
+
+        class Cat {
+            constructor(name, usesLitter) {
+                this._name = name;
+                this._usesLitter = usesLitter;
+                this._behavior = 0;
+            }
+          
+            get name() {
+                return this._name;
+            }
+          
+            get usesLitter() {
+                return this._usesLitter;
+            }
+          
+            get behavior() {
+                return this._behavior;
+            }  
+          
+            incrementBehavior() {
+                this._behavior++;
+            }
+        }
+
+        // /In the example above, we create a Cat class. It shares a couple of properties (_name and _behavior) and a method (.incrementBehavior()) with the Dog class from earlier exercises. The Cat class also contains one additional property (_usesLitter), that holds a boolean value to indicate whether a cat can use their litter box.
+
+        //When multiple classes share properties or methods, they become candidates for inheritance — a tool developers use to decrease the amount of code they need to write.
+
+        //With inheritance, you can create a parent class (also known as a superclass) with properties and methods that multiple child classes (also known as subclasses) share. The child classes inherit the properties and methods from their parent class.
+
+        //Let's abstract the shared properties and methods from our Cat and Dog classes into a parent class called Animal.
+
+        class Animal {
+            constructor(name) {
+                this._name = name;
+                this._behavior = 0;
+            }
+          
+            get name() {
+                return this._name;
+            }
+          
+            get behavior() {
+                return this._behavior;
+            }   
+          
+            incrementBehavior() {
+                this._behavior++;
+            }
+        }
+
+        // /In the example above, the Animal class contains the properties and methods that the Cat and Dog classes share (name, behavior, .incrementBehavior()).
+
+        Example:
+
+        1.  //Create a parent class named HospitalEmployee. Add a constructor with name as an argument.
+
+        class HospitalEmployee {
+            constructor(name) {
+                this._name = name;
+                this._remainingVacationDays = 20;
+            }
+        }
+
+        2.  //Inside of the constructor(), set the instance's _name to name and _remainingVacationDays to 20.
+
+        class HospitalEmployee {
+            constructor(name) {
+                this._name = name;
+                this._remainingVacationDays = 20;
+            }
+        }
+
+        3.  //Under the constructor, create getters for your _name and _remainingVacationDays properties.  Inside the getter, return the property's value.
+
+        class HospitalEmployee {
+            constructor(name) {
+                this._name = name;
+                this._remainingVacationDays = 20;
+            }
+            
+            get name() {
+                return this._name;
+            }
+          
+            get remainingVacationDays() {
+                return this._remainingVacationDays;
+            }
+        }
+
+        4.  //Under the getters, add a method called takeVacationDays. This method should accept one argument, called daysOff. Inside the method, subtract daysOff from _remainingVacationDays. Save the result to _remainingVacationDays.
+
+        class HospitalEmployee {
+            constructor(name) {
+                this._name = name;
+                this._remainingVacationDays = 20;
+            }
+            
+            get name() {
+                return this._name;
+            }
+          
+            get remainingVacationDays() {
+                return this._remainingVacationDays;
+            }
+            
+            takeVacationDays(daysOff) {
+                this._remainingVacationDays -= daysOff;
+            }
+        }
+    }
+}
