@@ -38,3 +38,8 @@ let members = [
     const totalAgeOfMale = filtered.reduce((a, {age}) => a + age, 0);
 
     console.log('Total age of male', totalAgeOfMale)
+
+
+    const totalAge = members.reduce((a, {age}) => a + age, 0);
+
+
